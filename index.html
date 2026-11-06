@@ -1,0 +1,329 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>喜子的猫饭厨房 · 红虎斑版</title><style>
+:root{--bg:#fff5e9;--panel:#fff;--ink:#41271f;--muted:#765344;--line:#ebd4c1;--green:#9d391a;--light:#fce9d7;--amber:#a56b16;--warn:#fff3dc;--red:#ae493d}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.55 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}header{background:#642711;color:white;padding:36px max(24px,calc((100vw - 1220px)/2));}header h1{font-size:30px;margin:0 0 8px;letter-spacing:-.7px}header p{color:#ffe3cd;margin:0}.wrap{max-width:1220px;margin:25px auto;padding:0 22px 60px}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(310px,1fr);gap:18px;align-items:start}.card{background:var(--panel);padding:23px;border:1px solid var(--line);border-radius:17px;box-shadow:0 6px 22px #183b2a09;margin-bottom:18px}.card h2{font-size:19px;margin:0 0 5px}.sub{font-size:12px;color:var(--muted);margin:0 0 18px}.toolbar{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}button{font:inherit;cursor:pointer;border:1px solid #ddb396;border-radius:10px;background:white;color:var(--green);padding:9px 13px;font-weight:650}button.main{background:var(--green);color:white;border-color:var(--green)}button:hover{filter:brightness(.95)}input,select{max-width:100%;border:1px solid #e4c2a7;border-radius:9px;padding:8px;background:#fff;color:var(--ink);font:inherit;min-width:0}input[type=number]{width:92px;text-align:right}.config{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.config label,.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}.config input{width:100%;text-align:left}.recipes{width:100%;border-collapse:collapse;font-size:13px}.recipes th{text-align:left;font-size:11px;color:var(--muted);font-weight:650;border-bottom:1px solid var(--line);padding:9px 5px}.recipes td{border-bottom:1px solid #f0dfd1;padding:8px 4px}.recipes input[type=text]{width:100%;min-width:125px}.recipes select.food-select{width:100%;min-width:160px;padding:9px 7px;background:#fff;border:1px solid #d9aa8e;font-weight:600}.recipes .food-custom{margin-top:6px;font-weight:400}.food-library{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.food-library details{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff8ef}.food-library summary{cursor:pointer;font-weight:650;font-size:13px}.food-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.food-tags span{background:#e9f2eb;color:#385e50;padding:3px 8px;border-radius:8px;font-size:12px}.select-help{color:#78513d;font-size:12px;margin-top:8px}@media(max-width:650px){.food-library{grid-template-columns:1fr}}.recipes input[type=number]{width:75px;padding:7px 5px}.recipes td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.cat{color:var(--muted);font-size:11px}.statbox{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{padding:14px;background:#fff0e1;border:1px solid #f1d7c0;border-radius:12px}.stat span{display:block;font-size:11px;color:#784b35}.stat strong{font-size:24px;font-variant-numeric:tabular-nums}.stat small{font-size:11px;color:var(--muted)}.bar{display:flex;overflow:hidden;height:15px;border-radius:99px;background:#eee;margin:14px 0}.bar div:nth-child(1){background:#a33d20}.bar div:nth-child(2){background:#b85329}.bar div:nth-child(3){background:#cb6c38}.bar div:nth-child(4){background:#de8950}.bar div:nth-child(5){background:#edab6e}.bar div:nth-child(6){background:#f4c08d}.bar div:nth-child(7){background:#b97052}.bar div:nth-child(8){background:#d89170}.bar div:nth-child(9){background:#efb798}.msg{padding:12px 13px;border-radius:11px;background:#fff5e9;color:#684332;margin:10px 0;font-size:13px;border-left:3px solid #d99e77}.msg.warn{background:var(--warn);border-left-color:#dba23e}.msg.danger{background:#ffe8e3;border-left-color:#c05a4d}.msg.ok{background:var(--light);border-left-color:var(--green)}.range{accent-color:var(--green);width:100%}.foot{font-size:12px;color:var(--muted)}.tiny{font-size:11px;color:var(--muted)}.statline{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px dashed var(--line);padding:8px 0;font-size:13px}.statline b{font-variant-numeric:tabular-nums}.tablewrap{overflow-x:auto}.pill{font-size:11px;border:1px solid #e6bea2;background:#fce7d4;color:#8f361c;border-radius:99px;padding:2px 8px}.formula{font:12px/1.6 ui-monospace,SFMono-Regular,monospace;background:#fff2e5;padding:11px;border-radius:9px;color:#78513d}@media(max-width:850px){.layout{grid-template-columns:1fr}.wrap{padding:0 12px}.card{padding:15px}.recipes{min-width:575px}header{padding:26px 17px}header h1{font-size:25px}}
+ 
+.layout > *,.card,.field{min-width:0}
+.statbox{grid-template-columns:repeat(2,minmax(0,1fr))}
+.statline b{text-align:right;overflow-wrap:anywhere}
+.bar div:nth-child(10){background:#f8d1a9}
+@media(max-width:920px){
+ .layout{grid-template-columns:minmax(0,1fr)}
+ .recipes{min-width:510px}
+ .recipes select.food-select,.recipes input[type=text]{min-width:0;width:100%}
+ .recipes input[type=number]{width:100%;min-width:55px}
+ input:not([type=checkbox]),select,button{font-size:16px;min-height:44px}
+ .recipes input,.recipes select.food-select{font-size:16px;min-height:36px;padding:4px 5px}
+ .recipes td{padding:5px 4px}
+ .config select{width:100%}
+}
+@media(max-width:380px){.toolbar button{flex:1 1 120px}.config{grid-template-columns:minmax(0,1fr)}}
+.page-nav{display:flex;gap:10px;margin-bottom:0;padding-bottom:0;flex-wrap:wrap}
+.page-nav a{display:inline-flex;align-items:center;min-height:44px;padding:6px 14px;border:1px solid var(--line);border-radius:10px;color:var(--green);background:white;text-decoration:none}
+.page-nav a[aria-current]{background:var(--green);color:white}
+.saved-entry{border-bottom:1px solid var(--line);padding:12px 0;overflow-wrap:anywhere}
+.saved-entry .toolbar{margin:8px 0 0}
+.cost-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,120px);align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.cost-row label{overflow-wrap:anywhere}
+.cost-row input[type=number]{width:100%}
+#cost-panel .config{margin-top:16px}
+[hidden]{display:none!important}
+.save-form,.nutrition-reference{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff8ef}
+.save-form .toolbar{margin:8px 0 0}
+.save-form input{flex:1 1 170px}
+.nutrition-reference summary{cursor:pointer;font-weight:650;color:var(--green)}
+.nutrition-reference .sub{margin:8px 0}
+#energy-card{grid-area:energy}
+#overview-card{grid-area:overview}
+#planner-page .layout{grid-template-areas:"editor results"}
+#planner-page .layout>section{grid-area:editor}
+#planner-page aside{grid-area:results;display:grid;grid-template-areas:"energy" "overview"}
+@media(max-width:920px){
+ #planner-page .layout{grid-template-areas:"editor" "results"}
+ #planner-page aside{display:block}
+}
+#png-image{display:block;width:min(100%,640px);margin-top:12px;border:1px solid var(--line);border-radius:12px}
+#png-preview{margin:12px 0}
+#png-download{color:var(--green)}
+
+
+.tabby-header{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(110deg,#fffdfa 10%,#fff5e7 65%,#fff1d2 100%);padding-top:clamp(26px,5vw,54px);padding-bottom:clamp(30px,5vw,58px);border-bottom:1px solid #efdfca}
+.tabby-header::after{content:"";position:absolute;z-index:-1;inset:-22% -9% -45% 35%;background:repeating-radial-gradient(ellipse at 92% -15%,transparent 0 31px,#dba97726 34px 42px,transparent 45px 67px);transform:rotate(-12deg);mask-image:linear-gradient(90deg,transparent,#000 60%);pointer-events:none}
+.tabby-header h1{font-size:clamp(28px,4vw,44px);letter-spacing:.02em;color:#543b30}
+.tabby-kicker{display:inline-block;padding:3px 11px;margin-bottom:9px;border:1px solid #eedac4;border-radius:999px;color:#704a35;font-weight:650;font-size:12px;background:#fff9ef}
+.card{background:#fffdf9;box-shadow:0 6px 22px #6427110a}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #9d391a;outline-offset:2px}
+
+:root{--bg:#fcfaf6;--ink:#403833;--muted:#6e645c;--line:#e9e1d7;--green:#875137}
+body{font-family:"Hiragino Maru Gothic ProN","Yuanti SC","圆体","PingFang SC",system-ui,sans-serif}
+h1,h2,.tabby-kicker,button,.page-nav a{font-family:"Yuanti SC","圆体","Hiragino Maru Gothic ProN",ui-rounded,"PingFang SC",system-ui,sans-serif}
+.tabby-header p{color:#6c5547}
+.card{background:#fff;border-radius:20px}
+.stat,.formula,.save-form,.nutrition-reference{background:#fcf8f1;border-color:#eee3d4}
+button{border-radius:14px}
+button.main,.page-nav a[aria-current]{background:#f8e3cf;color:#613b2b;border-color:#e7c7ae}
+input,select,.recipes select.food-select{border-color:#e4d9cf}
+.msg{background:#edf4fa;color:#345366;border-left-color:#829eaf}
+.msg.warn{background:#fff5d7;color:#684a11;border-left-color:#bc8b30}
+.msg.danger{background:#fbeaed;color:#772e40;border-left-color:#b4546c}
+.msg.ok{background:#eaf4ed;color:#315c46;border-left-color:#6f9b80}
+.msg::before{content:"提示";font-weight:750;margin-right:.6em}
+.msg.warn::before{content:"⚠ 注意"}
+.msg.danger::before{content:"！警告"}
+.msg.ok::before{content:"✓ 核对"}
+.bar div:nth-child(1){background:#d9a387}
+.bar div:nth-child(2){background:#efc3a8}
+.bar div:nth-child(3){background:#e6c87e}
+.bar div:nth-child(4){background:#f0dca6}
+.bar div:nth-child(5){background:#a7bdb3}
+.bar div:nth-child(6){background:#b3c7d5}
+.bar div:nth-child(7){background:#c5b5d3}
+.bar div:nth-child(8){background:#a8bc91}
+.bar div:nth-child(9){background:#d7b1b9}
+.bar div:nth-child(10){background:#eed7a2}
+</style></head><body>
+<header class="tabby-header"><div class="tabby-kicker">🐾 &nbsp; 送给喜子</div><h1>喜子的猫饭厨房</h1><p>今天给喜子做什么好吃的？</p></header>
+<nav class="wrap page-nav" aria-label="页面"><a href="#planner" id="planner-link">配方编辑</a><a href="#recipes" id="recipes-link">配方库与成本</a></nav><main class="wrap" id="planner-page"><div class="layout"><section>
+<div class="card"><h2>01 / 食材组合</h2><p class="sub">每一行对应不同营养类别；Roll 只在同类食材里抽选，不会把青口当鱼或把心脏当肝。</p>
+<div class="toolbar"><button class="main" id="roll">🎲 随机 Roll 一套</button><button id="save">保存到配方库</button><button id="export-png">导出配方 PNG</button></div>
+<form id="save-form" hidden class="save-form"><label for="recipe-name">配方名称</label><div class="toolbar"><input id="recipe-name" required maxlength="80"><button class="main" type="submit">确认保存</button><button type="button" id="cancel-save">取消</button></div></form><p id="save-status" class="sub" role="status"></p><div class="tablewrap"><table class="recipes"><thead><tr><th>类别</th><th style="width:35%">食材选择（点开查看本类全部）</th><th>比例%</th><th>生重 g</th><th>kcal/100g</th><th>本批花费 ¥</th></tr></thead><tbody id="ingredients"></tbody></table></div>
+<div class="statline"><span>整批食材成本</span><b id="batch-price">–</b></div>
+<p class="tiny">直接填这次购买该食材花了多少元。留空表示未记录，免费食材可填 0。部分花费未填时显示已填小计。</p>
+<div id="png-preview" hidden><p class="tiny">图片已生成。可点击下载，也可以在手机上长按图片保存。</p><a id="png-download" download="喜子的猫饭配方.png">下载 PNG</a><img id="png-image" alt="导出的猫饭配方图"></div>
+<p class="select-help">▾ 点击食材框即可浏览该类别的全部选项；选择“✎ 自定义食材”可手动录入新名称。</p><p class="tiny">食材热量为近似值。鸡蛋按生的去壳全蛋称重，再与其他动物性食材一起充分熟制。肺和肾的营养组成不同，互换后需要重新核算。默认比例用于食材分配，完整营养应按热量核算。调整比例后，系统按白肉基准自动重算，必须保证总比例100%。</p><div class="bar" id="bar"></div><div id="pctstatus"></div></div>
+<div class="card"><h2>02 / 批量与熟重</h2><p class="sub">配比全部以生重计算。煮熟缩水不等于热量消失；留汤后请称实际成品总重。</p><div class="config">
+<div class="field"><label>白肉基准重量（g）</label><input id="anchor" type="number" min="1" step="10" value="500"></div>
+<div class="field"><label>每份熟猫饭（g）</label><input id="portion" type="number" min="1" step="5" value="100"></div>
+<div class="field"><label>最终熟饭实际总重（g，可选）</label><input id="cooked" type="number" min="1" step="10" placeholder="制作后填写"></div>
+<div class="field"><label>猫粮能量（kcal/100g）</label><input id="drykcal" type="number" min="1" max="800" step="5" value="365"></div>
+</div><div class="formula">成品份数 = 熟重 ÷ 每份熟饭重量；未填写熟重时，仅显示生料等价份数。</div></div>
+
+<div class="card" id="supplement-card"><h2>03 / 补剂与完整营养参考</h2><p class="sub">根据当前批量、每份重量与实际熟重实时重算。这里将“标签用量换算”和“整份食物营养需求”分开，避免把营养目标误当补剂投放量。</p>
+<div class="config">
+<div class="field"><label>纯牛磺酸：标签建议每只猫每天（g）</label><input id="taurineday" type="number" min="0" max="10" step="0.05" placeholder="按已确认的标签填写"></div>
+<div class="field"><label>完整猫饭预混粉：产品标示每kg生料（g）</label><input id="premixkg" type="number" min="0" max="200" step="0.5" value="0"></div>
+</div>
+<p class="tiny">牛磺酸仅换算你自行填写的标签用量；预混粉须确认适用于当前生命阶段的熟自制主食、当前食材结构，且按标签规定的计量基础添加。</p>
+<div class="statline"><span>这批按当前份量折合晚餐天数</span><b id="suppdays">–</b></div>
+
+<div class="statline"><span>牛磺酸标签换算 · 整批</span><b id="taurinebatch">–</b></div>
+<div class="statline"><span>预混粉标签换算 · 整批</span><b id="premixbatch">–</b></div>
+<div class="field"><label for="calciumkg">钙粉（选填）· 每 kg 生料的已确认用量（g）</label><input id="calciumkg" type="number" min="0" step="any" inputmode="decimal" placeholder="按适用标签或已配平配方填写"></div>
+<div class="statline"><span>钙粉换算 · 整批</span><b id="calciumbatch">–</b></div>
+<p class="tiny">填的是钙粉产品重量。按整批生重换算，需先确认该用量适用于这份配方与猫的生命阶段。含钙预混粉需一并核算。</p>
+<div id="suppbasis" class="msg warn"></div>
+<details class="nutrition-reference"><summary>查看完整湿粮营养参考</summary><p id="nutrient-stage" class="sub"></p>
+<p class="tiny">这里假设这批猫饭要达到完整湿粮的营养水平，用整批估算热量乘以 FEDIAF 每 1,000 kcal 的最低推荐含量。例如 1,000 kcal 的幼猫湿粮，钙参考总量是 2.5 g，包含原料自带的钙。当前没有测算原料已含多少，因此无法算出需要额外补多少。</p>
+<div class="statline"><span>钙（元素钙）参考总量</span><b id="calciumtarget">–</b></div>
+<div class="statline"><span>磷参考总量</span><b id="phosphorustarget">–</b></div>
+<div class="statline"><span>牛磺酸参考总量（湿粮）</span><b id="taurinetarget">–</b></div>
+<div class="statline"><span>维生素E参考总量</span><b id="vitEtarget">–</b></div>
+<div class="statline"><span>碘参考总量</span><b id="iodinetarget">–</b></div>
+<div class="msg danger"><b>不能自动给出：</b>配方实际需要的钙粉、碘化钾、维生素E、维生素D及B族的实际投放克数。缺少这些食材的磷、钙、维生素、矿物质含量和产品浓度，随食物重量机械增减可能造成营养缺乏或过量。也不要将综合预混粉与单项补剂重复叠加。</div></details>
+</div>
+<div class="card"><h2>04 / 营养风险扫描</h2><p class="sub">仅为配方规则和热量检查，不能代替包含完整微量营养素的专业营养计算。</p><div id="warnings"></div><div class="msg warn"><b>尚不能判定完整主食：</b>当前数据库没有逐项的磷、元素钙、牛磺酸、碘、锌、锰、铜、硒、维生素A/D/E、脂肪酸及生熟损失值。即使上面均未报警，也不等于符合FEDIAF全价要求。切勿照抄碘化钾片数或按固定g/kg直接补钙。</div></div>
+</section><aside>
+<div class="card" id="overview-card"><h2>结果总览</h2><p class="sub">修改食材、份量、熟重、猫粮与补剂标签用量会实时重算</p><div class="statbox"><div class="stat"><span>生料总重</span><strong id="total">–</strong><small>g</small></div><div class="stat"><span>整批理论热量</span><strong id="batchcal">–</strong><small>kcal</small></div><div class="stat"><span>生料等价热量密度</span><strong id="density">–</strong><small>kcal/100g 生料</small></div><div class="stat"><span>可分份数</span><strong id="portions">–</strong><small id="portiontype">生重等价份</small></div></div><div class="statline"><span>整批动物性原料</span><b id="animal">–</b></div><div class="statline"><span>整批蔬菜</span><b id="vegetable">–</b></div><div class="statline"><span>晚餐估算热量</span><b id="dinner">–</b></div><div class="statline"><span>每份食材成本（选填）</span><b id="portion-price">–</b></div><p class="tiny">若未输入熟重，晚餐热量以与每份设定克数相同的生料重量估计，并非熟制成品的真实值。</p></div>
+<div class="card" id="energy-card"><h2>猫咪每日热量</h2><div class="config"><div class="field"><label>体重 kg</label><input id="weight" type="number" value="4.8" min="1" max="15" step="0.1"></div><div class="field"><label>年龄（月）</label><input id="age" type="number" value="12" min="1" max="240"></div><div class="field"><label>早餐猫粮 g</label><input id="drygram" type="number" value="40" min="0" max="500"></div><div class="field" id="activity-field"><label>成年猫活动类别</label><select id="activity"><option value="52">室内低活动 52</option><option value="75">绝育/一般 75</option><option value="100" selected>活跃 100</option></select></div></div>
+<div class="stat" style="margin-top:15px"><span>每日热量参考</span><strong id="need">–</strong><small id="energy-method"></small></div><div class="statline"><span>早餐热量</span><b id="breakfast">–</b></div><div class="statline"><span>晚餐热量</span><b id="dinnerview">–</b></div><div class="statline"><span>全天合计</span><b id="daily">–</b></div><div id="energyhint"></div><p class="foot" id="age-note"></p></div>
+
+</aside></div><p class="foot">依据：FEDIAF Nutritional Guidelines 2025，WSAVA 成年猫热量表。本工具仅提供标签换算和完整食物营养目标，不提供矿物质及维生素的盲目添加剂量，不能单独用来验证完整营养。编辑输入框也可录入数据库以外的新食材，请自行校验热量数据来源。</p></main>
+
+<main class="wrap" id="recipes-page" hidden><section class="card">
+<h2>已保存配方</h2><p class="sub">食材和本批花费随配方保存。载入后可以继续编辑或导出图片。配方保存在当前浏览器。</p>
+<div id="saved-recipes"></div></section></main><datalist id="allfoods"></datalist>
+<script>
+const DB={
+white:{'鸡胸肉':118,'鸭胸肉':153,'兔里脊':105,'火鸡胸':109},
+red:{'牛霖':200,'牛胸肉':230,'牛上脑':250,'羊腿肉':270,'猪里脊':143,'马腿肉':130,'鸵鸟肉':140},
+heart:{'鸡心':178,'鸭心':195,'兔心':175,'牛心':165,'猪心':165,'羊心':163},
+liver:{'鸡肝':119,'鸭肝':140,'兔肝':120,'牛肝':175,'猪肝':141},
+kidney:{'猪肾':99,'牛肾':103,'羊肾':97,'兔肾':85,'猪肺':85,'牛肺':92},
+fish:{'马鲛鱼':205,'沙丁鱼':208,'秋刀鱼':297,'多春鱼':158,'三文鱼':206,'鲈鱼':82,'青花鱼':262,'虾仁':106},
+shell:{'青口贝':86,'蓝口贝':88,'生蚝':51},
+egg:{'全鸡蛋（去壳）':143},
+veg:{'南瓜':26,'胡萝卜':41,'西兰花':34,'冬瓜':13,'苹果':52,'雪梨':57}
+};
+const TEMPLATE=[{cat:'white',label:'白肉',name:'鸭胸肉',pct:40},{cat:'red',label:'红肉',name:'猪里脊',pct:20},{cat:'heart',label:'心脏',name:'鸡心',pct:14},{cat:'liver',label:'肝脏',name:'鸡肝',pct:5},{cat:'kidney',label:'其他内脏',name:'牛肾',pct:3},{cat:'fish',label:'鱼类',name:'三文鱼',pct:5},{cat:'shell',label:'贝类',name:'青口贝',pct:3},{cat:'veg',label:'蔬菜 A',name:'南瓜',pct:4},{cat:'veg',label:'蔬菜 B',name:'胡萝卜',pct:1},{cat:'egg',label:'鸡蛋',name:'全鸡蛋（去壳）',pct:5}];
+let rows=TEMPLATE.map(x=>({...x,kcal:DB[x.cat][x.name]}));
+const el=id=>document.getElementById(id),fmt=(n,d=1)=>Number.isFinite(n)?n.toLocaleString('zh-CN',{maximumFractionDigits:d}):'–';
+const all=Object.keys(DB).flatMap(k=>Object.keys(DB[k]));if(el('allfoods'))el('allfoods').innerHTML=[...new Set(all)].map(n=>`<option value="${n}"></option>`).join('');
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CAT_LABELS={white:'白肉',red:'红肉',heart:'心脏',liver:'肝脏',kidney:'其他内脏（肺／肾）',egg:'鸡蛋',fish:'鱼虾',shell:'贝类',veg:'蔬果'};
+function buildRows(){el('ingredients').innerHTML=rows.map((r,i)=>{const entries=Object.keys(DB[r.cat]);const custom=!entries.includes(r.name);return `<tr><td><span class="cat">${escapeHTML(r.label)}</span></td><td><select class="food-select" data-index="${i}" data-field="pick" aria-label="${escapeHTML(r.label)}食材选择">${entries.map(n=>`<option value="${escapeHTML(n)}" ${n===r.name?'selected':''}>${escapeHTML(n)}</option>`).join('')}<option value="__custom__" ${custom?'selected':''}>✎ 自定义食材…</option></select><input class="food-custom" type="text" data-index="${i}" data-field="name" value="${escapeHTML(r.name)}" placeholder="输入食材名称" aria-label="自定义${escapeHTML(r.label)}名称" style="display:${custom?'block':'none'}"></td><td data-label="比例 %"><input type="number" min="0" step="0.5" data-index="${i}" data-field="pct" value="${r.pct}" aria-label="比例"></td><td class="num" data-label="生重" id="g${i}">–</td><td data-label="kcal/100g"><input type="number" min="0" step="1" data-index="${i}" data-field="kcal" value="${r.kcal}" aria-label="每百克热量"></td><td data-label="本批花费 ¥"><input type="number" min="0" step="any" inputmode="decimal" data-index="${i}" data-field="price" value="${r.price??''}" placeholder="选填" aria-label="${escapeHTML(r.label)}本批花费（元）"></td></tr>`}).join('');}
+
+function getNum(id,f=0){const v=Number(el(id).value);return Number.isFinite(v)?v:f}
+function compute(){const pct=rows.reduce((s,r)=>s+(Number(r.pct)||0),0);let anchor=getNum('anchor',500),portion=getNum('portion',100);if(anchor<=0)anchor=500;if(portion<=0)portion=100;let white=rows[0].pct,total=white>0?anchor/(white/100):NaN;let effective=Number.isFinite(total)&&Math.abs(pct-100)<0.01&&rows.every(r=>r.pct>=0)?total:0;let cal=0,veg=0,animal=0;
+rows.forEach((r,i)=>{let g=effective*(Number(r.pct)||0)/100;el('g'+i).textContent=effective>0?fmt(g)+'g':'–';cal+=g*(Number(r.kcal)||0)/100;if(r.cat==='veg')veg+=g;else animal+=g});
+const priced=rows.filter(r=>r.pct>0&&r.price!==undefined&&r.price!==''&&Number.isFinite(Number(r.price))&&Number(r.price)>=0);
+const missing=rows.filter(r=>r.pct>0).length-priced.length;
+const cost=priced.reduce((sum,r)=>sum+Number(r.price),0);
+el('batch-price').textContent=!effective||!priced.length?'–':missing?'¥'+cost.toFixed(2)+'（小计，缺 '+missing+' 项）':'¥'+cost.toFixed(2);
+const cookedPriceWeight=Number(el('cooked').value), pricePortion=Number(el('portion').value);
+el('portion-price').textContent=!effective||!priced.length?'–':missing?'待补齐花费':cookedPriceWeight>0&&pricePortion>0?'¥'+(cost*pricePortion/cookedPriceWeight).toFixed(2):'填写实际熟重及每份重量';
+let cooked=getNum('cooked',0),parts=effective<=0?NaN:cooked>0?cooked/portion:effective/portion;let dinner=effective<=0?NaN:cooked>0?cal/cooked*portion:cal/effective*portion;
+el('total').textContent=fmt(effective||NaN,1);el('batchcal').textContent=fmt(effective>0?cal:NaN,0);el('density').textContent=fmt(cal/effective*100);el('portions').textContent=fmt(parts,1);el('portiontype').textContent=cooked>0?'实际熟重份':'生重等价份（非熟重）';el('animal').textContent=fmt(animal)+'g';el('vegetable').textContent=fmt(veg)+'g';el('dinner').textContent=fmt(dinner,0)+' kcal';el('dinnerview').textContent=fmt(dinner,0)+' kcal';
+el('bar').innerHTML=rows.map((r,i)=>`<div style="flex:${Math.max(0,Number(r.pct)||0)}" title="${r.label} ${r.pct}%"></div>`).join('');el('pctstatus').innerHTML=effective>0?`<div class="msg ok">✓ 当前比例合计 ${fmt(pct)}%，可计算各食材重量。</div>`:`<div class="msg danger">⚠ 当前比例合计 ${fmt(pct)}%。请确认合计为100%、各项非负，且白肉比例大于0。</div>`;
+const age=Number(el('age').value), weight=Number(el('weight').value);
+const validAge=age>=1&&age<=240, kitten=validAge&&age<12;
+const factor=getNum('activity',100);
+const growth=age<4?[2,2.5]:age<9?[1.75,2]:[1.5,1.5];
+const base=weight>0&&validAge?(kitten?100:factor)*weight**.67:NaN;
+const low=kitten?base*growth[0]:base, high=kitten?base*growth[1]:base;
+const breakfast=getNum('drygram',40)*getNum('drykcal',365)/100, daily=breakfast+dinner;
+el('activity-field').hidden=!validAge||kitten;
+el('energy-method').textContent=!validAge?'请输入有效月龄':kitten?'kcal/天 · FEDIAF 生长期估算':'kcal/天 · FEDIAF 成年维持估算';
+el('age-note').textContent=!validAge?'填写月龄后会自动切换参考标准。':kitten?
+  '当前按 '+age+' 月龄幼猫估算，以 100 × 体重^0.67 为维持基准，乘 '+growth.join('–').replace('1.5–1.5','1.5')+' 的生长系数。请用幼猫当前体重，结合生长曲线调整。未断奶幼猫需另行评估。':
+  '当前按成年维持估算。实际需求受绝育、活动、体况和体重趋势影响。';
+// Supplement reference: calculated from actual cooked portions when provided; otherwise only raw-weight equivalent.
+let batchDays=parts, taurineDaily=getNum('taurineday',0), premixPerKg=getNum('premixkg',0);
+el('suppdays').textContent=fmt(batchDays,2)+' 天'+(cooked>0?'（按熟重）':'（生料等价）');
+
+el('taurinebatch').textContent=taurineDaily>0&&cooked>0?fmt(taurineDaily*batchDays,2)+' g':'需填写标签用量和熟重';
+const calciumPerKg=getNum('calciumkg',0);
+el('calciumbatch').textContent=calciumPerKg>0&&effective>0?fmt(calciumPerKg*effective/1000,3)+' g':'–';
+el('premixbatch').textContent=premixPerKg>0&&effective>0?fmt(premixPerKg*effective/1000,2)+' g（仅依标签换算）':'未填产品标示，暂不计算';
+el('suppbasis').innerHTML=cooked>0?'✓ 已填熟饭总重，按实际每份重量估算可喂晚餐天数。请检查所有熟肉和肉汤是否全部计入。':'⚠ 未填写最终熟饭实际总重：蒸熟后填写熟重，再换算整批牛磺酸标签用量。';
+const targets=kitten?[2.50,2.10,.63,9.50,.45]:factor===100?[1,.64,.50,9.50,.33]:[1.33,.85,.67,12.7,.43];
+el('nutrient-stage').textContent=!validAge?'请填写有效月龄。':kitten?'当前基准：幼猫生长期。':'当前基准：成年维持（FEDIAF '+(factor===100?'100':'75')+' kcal/kg⁰·⁶⁷ 栏）。';
+['calcium','phosphorus','taurine','vitE','iodine'].forEach((key,i)=>{
+  const unit=['g','g','g','IU','mg'][i];
+  el(key+'target').textContent=validAge&&effective>0?fmt(cal*targets[i]/1000,3)+' '+unit:'–';
+});
+el('need').textContent=low===high?fmt(low,0):Number.isFinite(low)?fmt(low,0)+'–'+fmt(high,0):'–';
+el('breakfast').textContent=fmt(breakfast,0)+' kcal';
+el('daily').textContent=fmt(daily,0)+' kcal';
+el('energyhint').innerHTML=!Number.isFinite(low)||!Number.isFinite(daily)?
+  '<div class="msg warn">请补齐月龄、体重和配方数据。</div>':
+  '<div class="msg '+(daily<low||daily>high?'warn':'ok')+'">'+
+  (daily<low?'两餐估算热量低于参考值。':daily>high?'两餐估算热量高于参考值。':'两餐估算热量在参考范围内。')+
+  (cooked>0?'':' 晚餐暂按等重生料估算，填写实际熟重后可更新。')+'</div>';
+let list=[];if(Math.abs(pct-100)>.01)list.push(['danger','比例总和不是100%，先校正再比较。']);if(rows.find(r=>r.cat==='liver').pct>5)list.push(['danger','肝脏比例超过5%，维生素A/铜可能过量；需计算实测营养。']);if(rows.filter(r=>r.cat==='veg').reduce((s,r)=>s+r.pct,0)>10)list.push(['warn','蔬果超过10%，可能挤占动物性营养和能量密度。']);if(rows.find(r=>r.cat==='heart').pct<10)list.push(['warn','心脏占比不足10%，牛磺酸来源可能降低；不过仅凭心脏百分比仍不能确定是否满足牛磺酸需求。']);if(!rows.find(r=>r.cat==='fish').name.match(/三文鱼|沙丁鱼|青花鱼|秋刀鱼|马鲛鱼/))list.push(['warn','当前鱼类不是默认高脂鱼，Omega-3 EPA/DHA可能与原配方差异明显；虾也不能视作高脂鱼替代。']);if(rows.find(r=>r.cat==='shell').name.match(/生蚝/))list.push(['warn','生蚝富含部分矿物质，尤其锌；长期定量需核实铜锌及其他微量元素。']);if(cooked<=0)list.push(['warn','尚未填写熟饭总重：100g成品的热量无法准确估计，目前仅给出生重等价估算。']);if(kitten)list.push(['warn','已切换到幼猫生长期参考；完整饮食需按生长期配平。']);if(validAge&&!kitten)list.push(['ok','已按成年猫公式估算，但大型猫种仍可能继续成长。']);
+el('warnings').innerHTML=list.map(([type,msg])=>`<div class="msg ${type}">${msg}</div>`).join('')+`<div class="msg warn">当前自制配方尚未进行完整营养审核：必须验证钙磷、牛磺酸、维生素D/E、碘、锌、锰、铜、必需脂肪酸等，尤其晚餐长期占全天热量较大比例。</div>`;
+}
+function render(){buildRows();compute()}
+el('ingredients').addEventListener('change',e=>{const t=e.target;if(t.dataset.field!=='pick')return;const i=Number(t.dataset.index);if(t.value==='__custom__'){const custom=el('ingredients').querySelector(`input[data-index="${i}"][data-field="name"]`);custom.style.display='block';custom.focus();return;}if(rows[i].name!==t.value)rows[i].price='';rows[i].name=t.value;rows[i].kcal=DB[rows[i].cat][t.value];render()});
+el('ingredients').addEventListener('input',e=>{const t=e.target;if(!t.dataset.field||t.dataset.field==='pick')return;const i=Number(t.dataset.index),f=t.dataset.field;if(f==='name'){if(rows[i].name!==t.value){rows[i].price='';el('ingredients').querySelector(`input[data-index="${i}"][data-field="price"]`).value=''}rows[i].name=t.value;const found=DB[rows[i].cat][t.value];if(found!==undefined){rows[i].kcal=found;const kcalel=el('ingredients').querySelector(`input[data-index="${i}"][data-field="kcal"]`);kcalel.value=found}}else{rows[i][f]=f==='price'?t.value:Number(t.value)}compute()});
+['anchor','portion','cooked','drykcal','weight','age','activity','drygram','taurineday','premixkg','calciumkg'].forEach(id=>el(id).addEventListener('input',compute));
+el('roll').onclick=()=>{rows=rows.map((r,i)=>{if(r.cat==='veg'||r.cat==='egg')return r;const pool=Object.keys(DB[r.cat]);const name=pool[Math.floor(Math.random()*pool.length)];return {...r,name,kcal:DB[r.cat][name],price:name===r.name?r.price:''}});render()};
+
+
+el('export-png').onclick=()=>{
+  const canvas=document.createElement('canvas');
+  canvas.width=1800;
+  canvas.height=1010;
+  const ctx=canvas.getContext('2d');
+  ctx.scale(2,2);
+  ctx.fillStyle='#fffdfa';
+  ctx.fillRect(0,0,900,505);
+  const print=(value,x,y,width,font='15px',color='#41271f')=>{
+    ctx.font=font+' system-ui, sans-serif';
+    ctx.fillStyle=color;
+    ctx.fillText(String(value),x,y,width);
+  };
+  print('喜子的猫饭配方',24,38,600,'bold 25px','#642711');
+  print(new Date().toLocaleDateString('zh-CN'),725,38,150);
+  const columns=[24,138,395,490,597,730];
+  const headings=['类别','食材','比例','生重','kcal / 100g','本批花费 ¥'];
+  headings.forEach((heading,i)=>print(heading,columns[i],70,150,'bold 14px','#9d391a'));
+  rows.forEach((row,i)=>{
+    const y=79+i*32;
+    if(i%2===0){ctx.fillStyle='#fcf5eb';ctx.fillRect(16,y,868,32)}
+    const values=[row.label,row.name,row.pct+'%',el('g'+i).textContent,row.kcal,row.price!==undefined&&row.price!==''&&Number(row.price)>=0?row.price:'—'];
+    values.forEach((value,j)=>print(value,columns[j],y+21,j===1?245:j===0?105:125));
+  });
+  print('整批生重 '+el('total').textContent+' g　·　整批估算热量 '+el('batchcal').textContent+' kcal',24,429,850,'bold 16px');
+  print('食材成本 '+el('batch-price').textContent+'　·　每份 '+el('portion-price').textContent,24,455,850);
+  print('花费按本批录入金额合计。营养完整性需另行核算。',24,480,850,'13px','#765344');
+  const url=canvas.toDataURL('image/png');
+  el('png-image').src=url;
+  el('png-download').href=url;
+  el('png-preview').hidden=false;
+  el('png-download').click();
+};
+const libraryKey='catFoodPlanner.library.v1';
+const fields=['anchor','portion','cooked','drykcal','weight','age','activity','drygram','taurineday','premixkg','calciumkg'];
+
+function readLibrary(){
+  try{return JSON.parse(localStorage.getItem(libraryKey))||{recipes:[],defaultId:null}}
+  catch{return {recipes:[],defaultId:null}}
+}
+function writeLibrary(data,onError=alert){
+  try{localStorage.setItem(libraryKey,JSON.stringify(data));return true}
+  catch{onError('浏览器未允许保存。请在普通浏览器标签页打开此文件，再试一次。');return false}
+}
+function loadRecipe(recipe){
+  const anchor=Number(recipe.fields.anchor)>0?Number(recipe.fields.anchor):500;
+  rows=recipe.rows.map((row,i)=>{
+    const unitPrice=recipe.cost?.prices?.[i];
+    const price=row.price??(unitPrice!=null&&unitPrice!==''&&recipe.rows[0].pct>0?
+      (Number(unitPrice)*anchor*row.pct/recipe.rows[0].pct/1000).toFixed(2):'');
+    return {...row,price};
+  });
+  for(const id of fields)el(id).value=recipe.fields[id]??el(id).defaultValue;
+  if(recipe.cost?.cooked!=null)el('cooked').value=recipe.cost.cooked;
+  if(recipe.cost?.portion!=null)el('portion').value=recipe.cost.portion;
+  render();
+}
+el('save').onclick=()=>{
+  el('save-form').hidden=false;
+  el('save-status').textContent='';
+  el('recipe-name').value=rows[0].name+'＋'+rows[1].name;
+  el('recipe-name').focus();
+};
+el('cancel-save').onclick=()=>{el('save-form').hidden=true};
+el('save-form').onsubmit=event=>{
+  event.preventDefault();
+  if(el('total').textContent==='–'){el('save-status').textContent='请先确认比例合计 100%，且白肉比例大于 0。';return}
+  const name=el('recipe-name').value;
+  if(!name?.trim())return;
+  const data=readLibrary();
+  const recipe={id:globalThis.crypto?.randomUUID?.()||Date.now()+'-'+Math.random(),name:name.trim(),savedAt:new Date().toISOString(),rows:rows.map(row=>({...row})),fields:Object.fromEntries(fields.map(id=>[id,el(id).value]))};
+  data.recipes.unshift(recipe);
+  data.defaultId??=recipe.id;
+  if(writeLibrary(data,message=>{el('save-status').textContent=message})){el('save-form').hidden=true;location.hash='recipes';showPage();el('recipes-link').focus()}
+};
+function renderSaved(){
+  const data=readLibrary();
+  el('saved-recipes').innerHTML=data.recipes.map(recipe=>{
+    const isDefault=recipe.id===data.defaultId;
+    return `<div class="saved-entry"><strong>${escapeHTML(recipe.name)}</strong> ${isDefault?'<span class="pill">下次自动载入</span>':''}
+    <div class="tiny">${recipe.savedAt?'保存于 '+new Date(recipe.savedAt).toLocaleString('zh-CN'):'旧版配方 · 保存时间未记录'}</div>
+    <div class="toolbar"><button data-action="load" data-id="${escapeHTML(recipe.id)}">载入编辑</button><button data-action="default" data-id="${escapeHTML(recipe.id)}">${isDefault?'取消自动载入':'设为下次默认'}</button></div></div>`;
+  }).join('')||'<p class="sub">还没有保存的配方。</p>';
+}
+el('saved-recipes').onclick=event=>{
+  const {action,id}=event.target.dataset;
+  const data=readLibrary();
+  const recipe=data.recipes.find(item=>item.id===id);
+  if(!recipe)return;
+  if(action==='load'){loadRecipe(recipe);location.hash='planner';showPage()}
+  if(action==='default'){
+    data.defaultId=data.defaultId===id?null:id;
+    if(writeLibrary(data))renderSaved();
+  }
+};
+function showPage(){
+  const library=location.hash==='#recipes';
+  el('planner-page').hidden=library;
+  el('recipes-page').hidden=!library;
+  el(library?'recipes-link':'planner-link').setAttribute('aria-current','page');
+  el(library?'planner-link':'recipes-link').removeAttribute('aria-current');
+  if(library)renderSaved();
+}
+function migratePreviousRecipe(){
+  try{
+    if(localStorage.getItem(libraryKey))return;
+    const previous=JSON.parse(localStorage.getItem('catFoodPlanner.v1'));
+    if(![9,10].includes(previous?.rows?.length))return;
+    if(previous.rows.length===9)previous.rows.push({...TEMPLATE[9],pct:0,kcal:143});
+    const recipe={...previous,id:'legacy',name:'旧版保存的配方',savedAt:null,fields:previous.fields||{}};
+    writeLibrary({recipes:[recipe],defaultId:null});
+  }catch{}
+}
+migratePreviousRecipe();
+const savedLibrary=readLibrary();
+const startup=savedLibrary.recipes.find(recipe=>recipe.id===savedLibrary.defaultId);
+if(startup){loadRecipe(startup)}else render();
+window.addEventListener('hashchange',showPage);
+showPage();
+</script></body></html>
